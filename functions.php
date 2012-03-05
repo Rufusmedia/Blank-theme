@@ -1,0 +1,145 @@
+<?php
+/*
+| ===================================================
+| RM FUNCTIONS SHEET V1.0
+| ===================================================
+*/
+
+
+
+/*
+|====================================================
+| WIDGETIZED SIDEBAR SUPPORT
+|====================================================
+*/
+if (function_exists('register_sidebar')) {
+
+	register_sidebar(array('name'=>'blog-sidebar',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '<p class="title">',
+		'after_title' => '</p>',
+	));
+		register_sidebar(array('name'=>'page-sidebar',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '<p class="title">',
+		'after_title' => '</p>',
+	));
+}
+
+
+/*
+|====================================================
+| ADDS SUPPORT FOR WORDPRESS CUSTOM MENUS
+| ===================================================
+*/
+function register_my_menus() {
+  register_nav_menus(
+    array('header-menu' => __( 'Header Menu' ))
+  );
+}
+add_action( 'init', 'register_my_menus' );
+
+/*
+|====================================================
+| REMOVE UNNEEDED CALLS TO WP-HEAD
+| ===================================================
+*/
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'feed_links', 2);
+remove_action('wp_head', 'index_rel_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'feed_links_extra', 3);
+remove_action('wp_head', 'start_post_rel_link', 10, 0);
+remove_action('wp_head', 'parent_post_rel_link', 10, 0);
+remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
+
+/*
+|====================================================
+| REMOVE DEFAULT DASHBOARD WIDGETS
+|====================================================
+*/
+function disable_default_dashboard_widgets() {
+
+	//COMMENT AND UN-COMMENT AS NEEDED TO CUSTOMIZE.
+
+	//remove_meta_box('dashboard_right_now', 'dashboard', 'core');
+	//remove_meta_box('dashboard_recent_comments', 'dashboard', 'core');
+	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');
+	remove_meta_box('dashboard_plugins', 'dashboard', 'core');
+	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');
+	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');
+	remove_meta_box('dashboard_primary', 'dashboard', 'core');
+	remove_meta_box('dashboard_secondary', 'dashboard', 'core');
+}
+add_action('admin_menu', 'disable_default_dashboard_widgets');
+
+/*
+|====================================================
+| ADD POST THUMBNAIL SUPPORT TO THEME
+|====================================================
+*/
+// ENABLE THIS AS NEEDED, PREFER ADVANCED CUSTOM FIELDS PLUGIN
+// add_theme_support( 'post-thumbnails' );
+
+/*
+|====================================================
+| REMOVES DEFAULT MENUS
+|====================================================
+*/
+function remove_menus () {
+global $menu;
+	$restricted = array( __('Links'));
+	end ($menu);
+	while (prev($menu)){
+		$value = explode(' ',$menu[key($menu)][0]);
+		if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
+	}
+}
+add_action('admin_menu', 'remove_menus');
+
+
+/*
+|====================================================
+| CUSTOMIZE THE ADMIN FOOTER AREA
+|====================================================
+*/
+function custom_admin_footer() {
+	echo 'Website design by <a href="http://rufusmedia.com/">Rufusmedia</a> &copy; '.date("Y").'. For site support please <a href="http://rufusmedia.com/contact">contact us</a>.';
+} 
+add_filter('admin_footer_text', 'custom_admin_footer');
+
+
+/*
+|====================================================
+| INCLUDE JQUERY
+|====================================================
+*/
+if (!is_admin()) {
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"), false);
+	wp_enqueue_script('jquery');
+}
+
+/*
+|====================================================
+|  CODE TO CHANGE LOGIN LOGO / LINK / TITLE
+|====================================================
+*/
+function login_styles() {
+echo '<style type="text/css">.login h1 a { background: url('. get_bloginfo("template_directory") .'/site-assets/login-logo.png) no-repeat center top; margin-bottom:15px; }</style>';
+}
+add_action('login_head', 'login_styles');
+
+function loginpage_custom_link() {
+	return 'http://www.marketingpugetsound.com';
+}
+add_filter('login_headerurl','loginpage_custom_link');
+
+function change_title_on_logo() {
+	return 'Site by Marketing Puget Sound';
+}
+add_filter('login_headertitle', 'change_title_on_logo');
+?>
