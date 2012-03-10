@@ -18,9 +18,6 @@ if (function_exists('register_sidebar')) {
 		'before_title' => '<p class="title">',
 		'after_title' => '</p>',
 	));
-	//WILL
-	//EXTRA
-	//WHITESPACE BE ADDED HERE
 }
 
 /*
