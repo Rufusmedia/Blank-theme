@@ -133,4 +133,3 @@ function change_title_on_logo() {
 	return 'Site by Rufusmedia';
 }
 add_filter('login_headertitle', 'change_title_on_logo');
-?>
