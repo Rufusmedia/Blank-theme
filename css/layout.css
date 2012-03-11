@@ -4,6 +4,14 @@
 |====================================================
 */
 
+/* PLACEHOLDER STYLES
+======================= */
+.placeholder header .container {
+height:100px;
+background:#eee;
+border: dashed 2px #999;
+}
+
 
 /* OVERALL LAYOUT
 ======================= */
