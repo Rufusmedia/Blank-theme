@@ -4,12 +4,12 @@
 |====================================================
 */
 
-/* PLACEHOLDER STYLES
+/* PLACEHOLDER STYLES = remove when customizing
 ======================= */
 .placeholder header .container {
-height:100px;
-background:#eee;
-border: dashed 2px #999;
+    height:100px;
+    background:#eee;
+    border: dashed 2px #999;
 }
 
 
