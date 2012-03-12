@@ -7,6 +7,9 @@
 	<meta charset="utf-8">
 	<title></title>
 	<meta name="description" content="">
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="shortcut icon" href="<?php bloginfo('template_directory') ?>/site-assets/favicon.ico">
 	<link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/style.css">
