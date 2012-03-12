@@ -70,6 +70,34 @@ add_action('admin_menu', 'disable_default_dashboard_widgets');
 
 /*
 |====================================================
+| CUSTOM COMMENT FUNCTION
+|====================================================
+*/
+function rm_comment($comment, $args, $depth) {
+   $GLOBALS['comment'] = $comment; ?>
+   <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
+    <div id="comment-<?php comment_ID(); ?>">
+		<div class="comment-meta commentmetadata"><?php printf(__('%s'), get_comment_date()) ?><?php edit_comment_link(__('Edit Comment'),'  <span class="post-edit-link">','</span>') ?></div>
+      <div class="comment-author vcard">
+         <?php echo get_avatar($comment,$size='64',$default='<path_to_url>' ); ?>
+         <?php echo(__('<p><strong>'.get_comment_author().':</strong></p>')) ?>
+      </div>
+      <?php if ($comment->comment_approved == '0') : ?>
+         <em><?php _e('Your comment is awaiting moderation.') ?></em>
+         <br />
+      <?php endif; ?>
+
+      <?php comment_text() ?>
+
+      <div class="reply">
+         <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' =>'Reply to this comment'))) ?>
+	  </div>
+    </div>
+<?php
+        }
+
+/*
+|====================================================
 | ADD POST THUMBNAIL SUPPORT TO THEME
 |====================================================
 */
