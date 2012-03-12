@@ -355,7 +355,7 @@ legend span {
 |====================================================
 */
 .container                                  { width: 960px; margin: 0 auto; padding: 0; }
-.column, .columns                           { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
+.column, .columns                           { position:relative; float: left; display: inline; margin-left: 10px; margin-right: 10px; }
 
 /* Nested Column Classes */
 .column.alpha, .columns.alpha               { margin-left: 0; }
@@ -556,4 +556,135 @@ or wrap each row of columns in a <div class="row"> */
 	visibility: hidden;
 	width: 0;
 	height: 0;
+}
+
+/*
+|====================================================
+| WORDPRESS CMS DEFAULT STYLES
+|====================================================
+*/
+
+/* POST AREA STYLES
+======================= */
+.main-content article {
+    position:relative;
+}
+
+.post-edit-link {
+	position:absolute;
+	top:10px;
+	right:10px;
+	padding:1px 3px;
+	background:#ddd;
+	border:solid 1px #777;
+	text-decoration:none;
+}
+
+.post-edit-link a {
+	text-decoration:none;
+}
+
+.post-edit-link:hover {
+	background: #ccc;
+}
+
+.post-meta {
+font-size:12px;
+color:#555;
+}
+
+/* WP FLOATS & IMAGES
+======================= */
+.alignleft {
+float: left !important; 
+}
+
+.alignright {
+float: right !important; 
+}
+
+p .alignleft, img.alignleft, .wp-caption.alignleft { 
+margin: 5px 10px 10px 0;
+padding: 0; 
+}
+
+p .alignright, img.alignright, .wp-caption.alignright {
+margin: 5px 0 10px 10px; 
+padding: 0; 
+}
+
+.aligncenter {
+display:block;
+margin:0 auto;
+}
+
+.wp-caption-text {
+text-align:center;
+font-size:12px;
+color:#555;
+font-style:italic;
+margin:0;
+}
+
+
+/* COMMENT LIST STYLES
+======================= */
+ol.commentlist { list-style: none; margin:0; padding:0 0 20px 0; }
+ol.commentlist li { }
+ol.commentlist li.alt { }
+ol.commentlist li.bypostauthor { }
+ol.commentlist li.byuser { }
+ol.commentlist li.comment-author-admin { }
+ol.commentlist li.comment { padding: 20px 20px 20px 104px; position:relative; min-height:104px; }
+ol.commentlist li.comment div.comment-author { }
+ol.commentlist li.comment div.vcard { }
+ol.commentlist li.comment div.vcard cite.fn { font-style: normal; }
+ol.commentlist li.comment div.vcard cite.fn a.url { }
+ol.commentlist li.comment div.vcard img.avatar { position:absolute; top:20px; left:20px; }
+ol.commentlist li.comment div.vcard img.avatar-32 { }
+ol.commentlist li.comment div.vcard img.photo { }
+ol.commentlist li.comment div.vcard span.says { }
+ol.commentlist li.comment div.commentmetadata { }
+ol.commentlist li.comment div.comment-meta { font-size: 10px; color:#aaa;  }
+ol.commentlist li.comment div.comment-meta a { }
+ol.commentlist li.comment p { }
+ol.commentlist li.comment ul { }
+ol.commentlist li.comment div.reply { font-size: 12px; }
+ol.commentlist li.comment div.reply a { }
+ol.commentlist li.comment ul.children { list-style: none; margin: 10px 0 0 0; padding:0;}
+ol.commentlist li.comment ul.children li { }
+ol.commentlist li.comment ul.children li.alt { }
+ol.commentlist li.comment ul.children li.bypostauthor { }
+ol.commentlist li.comment ul.children li.byuser { }
+ol.commentlist li.comment ul.children li.comment { }
+ol.commentlist li.comment ul.children li.comment-author-admin { }
+ol.commentlist li.comment ul.children li.depth-2 { border-left: 5px solid #555; margin: 0 0 10px 10px; }
+ol.commentlist li.comment ul.children li.depth-3 { border-left: 5px solid #999; margin: 0 0 10px 10px; }
+ol.commentlist li.comment ul.children li.depth-4 { border-left: 5px solid #bbb; margin: 0 0 10px 10px; }
+ol.commentlist li.comment ul.children li.depth-5 { }
+ol.commentlist li.comment ul.children li.odd { }
+ol.commentlist li.even { background: #fff; }
+ol.commentlist li.odd { background: #f6f6f6; }
+ol.commentlist li.parent { border-left: 5px solid #111; }
+ol.commentlist li.thread-alt { }
+ol.commentlist li.thread-even { }
+ol.commentlist li.thread-odd { }
+
+/* COMMENT FORM STYLES
+======================= */
+#respond form {
+padding:0 0 0 20px;
+}
+
+#respond input[type="text"] {
+margin-bottom:5px;
+width:350px;
+padding:3px;
+}
+
+#respond textarea {
+margin-bottom:5px;
+width:550px;
+height:150px;
+padding:3px;
 }
