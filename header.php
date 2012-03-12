@@ -19,7 +19,9 @@
 <header>
 	<div class="container">
 		<div class="sixteen columns">
-		Header Area
+			<div class="padding">
+			
+			</div><!-- end .padding -->
 		</div><!--  end .sixteen.columns -->
 	</div><!--  end .container  -->
 </header>

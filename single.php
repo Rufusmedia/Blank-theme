@@ -11,6 +11,13 @@
 				</div><!-- end .post-content -->
 				<p><?php edit_post_link('Edit', '', ''); ?></p>
 			</article><!-- end .post -->
+			<div class="comment-area">
+			    <?php comments_template(); ?>
+        
+				<div class="pagination">
+					<p><?php posts_nav_link('&nbsp;&bull;&nbsp;'); ?></p>
+				</div><!-- end .pagination -->
+			</div><!-- end .comment-area -->
 			<?php endwhile; endif; ?>          
 		</div><!-- end .padding -->
 	</div><!-- end .eleven.columns.content-area-->

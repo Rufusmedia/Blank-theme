@@ -6,8 +6,30 @@
 
 /* PLACEHOLDER STYLES = remove when customizing
 ======================= */
-.placeholder header .container {
-    height:100px;
+.placeholder .container {
+    background:#ddd;
+}
+
+.placeholder header .padding {
+    min-height:100px;
+    background:#eee;
+    border: dashed 2px #999;
+}
+
+.placeholder .main-content .content-area .padding {
+    min-height:300px;
+    background:#eee;
+    border: dashed 2px #999;
+}
+
+.placeholder .main-content .sidebar-area .padding {
+    min-height:300px;
+    background:#eee;
+    border: dashed 2px #999;
+}
+
+.placeholder footer .padding {
+    min-height:100px;
     background:#eee;
     border: dashed 2px #999;
 }
@@ -21,6 +43,15 @@
 
 /* MAIN-CONTENT STYLES
 ======================= */
+.main-content {
+    padding:10px 0;
+}
+
+/* BLOG SPECIFIC STYLES
+======================= */
+.post {
+    margin-bottom:10px;
+}
 
 /* SIDEBAR STYLES
 ======================= */
