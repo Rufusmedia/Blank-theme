@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="placeholder" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title></title>
 	<meta name="description" content="">
 	<!--[if lt IE 9]>
@@ -14,7 +15,8 @@
 	<link rel="shortcut icon" href="<?php bloginfo('template_directory') ?>/site-assets/favicon.ico">
 	<link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/style.css">
 	<?php wp_head(); ?>	
-</head>
+</head>
+
 <body>
 <header>
 	<div class="container">
