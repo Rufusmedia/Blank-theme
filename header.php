@@ -27,3 +27,21 @@
 		</div><!--  end .sixteen.columns -->
 	</div><!--  end .container  -->
 </header>
+<div class="container navigation">
+	<div class="sixteen columns desktop main-nav">
+		<nav>
+			<?php wp_nav_menu( 'header-menu' ); ?>
+		</nav>
+	</div><!-- end .sixteen.columns -->
+	
+	<nav class="main-nav mobile">
+	<div class="sixteen columns clearfix">
+		<form id="mobile-nav-select">
+			<select class="mobile-menu">
+			<option value="">Select Page...</option>
+			<option value="<?php bloginfo('url') ?>/">Home</option>
+			</select>
+		</form>
+	</div><!-- end .sixteen.columns -->
+	</nav><!-- end .main-nav.mobile -->
+</div><!--  end .container -->
