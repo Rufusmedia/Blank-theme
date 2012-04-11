@@ -1,4 +1,5 @@
-<footer>	<div class="container">
+<footer>
+	<div class="container">
 		<div class="sixteen columns">
 			<div class="padding">
 			
