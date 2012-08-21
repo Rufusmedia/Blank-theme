@@ -35,13 +35,13 @@
 	</div><!-- end .sixteen.columns -->
 	
 	<nav class="main-nav mobile">
-	<div class="sixteen columns clearfix">
-		<form id="mobile-nav-select">
-			<select class="mobile-menu">
-			<option value="">Select Page...</option>
-			<option value="<?php bloginfo('url') ?>/">Home</option>
-			</select>
-		</form>
-	</div><!-- end .sixteen.columns -->
+		<div class="sixteen columns clearfix">
+			<form id="mobile-nav-select">
+				<select class="mobile-menu">
+				<option value="">Select Page...</option>
+				<option value="<?php bloginfo('url') ?>/">Home</option>
+				</select>
+			</form>
+		</div><!-- end .sixteen.columns -->
 	</nav><!-- end .main-nav.mobile -->
 </div><!--  end .container -->
