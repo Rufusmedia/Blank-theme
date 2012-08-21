@@ -1,7 +1,7 @@
 <?php
 /*
 | ===================================================
-| RM FUNCTIONS SHEET V1.0
+| RM FUNCTIONS SHEET V1.3
 | ===================================================
 */
 
@@ -13,8 +13,8 @@
 if (function_exists('register_sidebar')) {
 
 	register_sidebar(array('name'=>'sidebar',
-		'before_widget' => '',
-		'after_widget' => '',
+		'before_widget' => '<div class="widget">',
+		'after_widget' => '</div>',
 		'before_title' => '<p class="title">',
 		'after_title' => '</p>',
 	));
@@ -70,31 +70,33 @@ add_action('admin_menu', 'disable_default_dashboard_widgets');
 
 /*
 |====================================================
-| CUSTOM COMMENT FUNCTION
+| CUSTOM COMMENT CALLBACK
 |====================================================
 */
 function rm_comment($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
-   <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
-    <div id="comment-<?php comment_ID(); ?>">
-		<div class="comment-meta commentmetadata"><?php printf(__('%s'), get_comment_date()) ?><?php edit_comment_link(__('Edit Comment'),'  <span class="post-edit-link">','</span>') ?></div>
-      <div class="comment-author vcard">
-         <?php echo get_avatar($comment,$size='64',$default='<path_to_url>' ); ?>
-         <?php echo(__('<p><strong>'.get_comment_author().':</strong></p>')) ?>
-      </div>
-      <?php if ($comment->comment_approved == '0') : ?>
-         <em><?php _e('Your comment is awaiting moderation.') ?></em>
-         <br />
-      <?php endif; ?>
+	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
+	<div id="comment-<?php comment_ID(); ?>">
+		<div class="comment-meta">
+			<?php printf(__('%s'), get_comment_date()) ?><?php edit_comment_link(__('Edit Comment'),'  <span class="post-edit-link">','</span>') ?>
+		</div><!-- end .comment-meta -->
+		<div class="comment-author vcard">
+			<?php echo get_avatar($comment,$size='64',$default='<path_to_url>' ); ?>
+			<?php echo(__('<p><strong>'.get_comment_author().':</strong></p>')) ?>
+		</div><!-- end .comment-author.vcard -->
+		<?php if ($comment->comment_approved == '0') : ?>
+			<em><?php _e('Your comment is awaiting moderation.') ?></em>
+			<br />
+		<?php endif; ?>
 
-      <?php comment_text() ?>
+		<?php comment_text() ?>
 
-      <div class="reply">
-         <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' =>'Reply to this comment'))) ?>
-	  </div>
-    </div>
+		<div class="reply">
+			<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' =>'Reply to this comment'))) ?>
+		</div><!-- end .reply -->
+	</div><!-- end #comment -->
 <?php
-        }
+}
 
 /*
 |====================================================
@@ -111,6 +113,8 @@ function rm_comment($comment, $args, $depth) {
 */
 function remove_menus () {
 global $menu;
+	// ADD TO ARRAY TO REMOVE FROM ADMIN SCREEN 
+	//__('Dashboard'), __('Posts'), __('Media'), __('Links'), __('Pages'), __('Appearance'), __('Tools'), __('Users'), __('Settings'), __('Comments'), __('Plugins')
 	$restricted = array( __('Links'));
 	end ($menu);
 	while (prev($menu)){
@@ -132,7 +136,7 @@ add_filter('admin_footer_text', 'custom_admin_footer');
 
 /*
 |====================================================
-| INCLUDE JQUERY
+| DE-REGISTER BUILT IN JQUERY INCLUDE, LOAD SCRIPT FROM GOOGLE CDN
 |====================================================
 */
 if (!is_admin()) {
