@@ -2,10 +2,10 @@
     <div class="padding">
         <aside>
             <ul>
-            <?php
-            //displays on all pages
-            if (function_exists('dynamic_sidebar') && dynamic_sidebar('') ) : ?>
-            <?php endif; ?>
+                <?php
+                // GET THE SIDEBAR WIDGETS
+                if (function_exists('dynamic_sidebar') && dynamic_sidebar('sidebar') ) : ?>
+                <?php endif; ?>
             </ul>
         </aside>
     </div><!-- end .padding -->

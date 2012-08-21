@@ -1,7 +1,8 @@
-<?php get_header(); ?>
+<?php get_header(); ?>
 <div class="container main-content">
 	<div class="eleven columns content-area">
 	    <div class="padding">
+
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 			<article class="post" id="post-<?php the_ID(); ?>">
 				<h2><?php the_title(); ?></h2>
@@ -18,9 +19,10 @@
 					<p><?php posts_nav_link('&nbsp;&bull;&nbsp;'); ?></p>
 				</div><!-- end .pagination -->
 			</div><!-- end .comment-area -->
-			<?php endwhile; endif; ?>          
+			<?php endwhile; endif; ?>  
+			        
 		</div><!-- end .padding -->
-	</div><!-- end .eleven.columns.content-area-->
-    <?php get_sidebar(); ?>
-</div><!-- end .container.main-content -->
+	</div><!-- end .eleven.columns.content-area-->
+    <?php get_sidebar(); ?>
+</div><!-- end .container.main-content -->
 <?php get_footer(); ?>
