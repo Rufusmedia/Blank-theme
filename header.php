@@ -30,7 +30,7 @@
 <div class="container navigation">
 	<div class="sixteen columns desktop main-nav">
 		<nav>
-			<?php wp_nav_menu( 'header-menu' ); ?>
+			<?php wp_nav_menu( array('theme_location' => 'header-menu' ) ); ?>
 		</nav>
 	</div><!-- end .sixteen.columns -->
 	
