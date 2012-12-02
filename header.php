@@ -5,7 +5,6 @@
 <!--[if gt IE 8]><!--> <html class="placeholder" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<!-- test comment -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title></title>
 	<meta name="description" content="">
