@@ -152,7 +152,7 @@ if (!is_admin()) {
 */
 // REMEMBER TO PUT A LOGIN-LOGO FILE IN THE SITE ASSETS FOLDER OF THE THEME
 function login_styles() {
-echo '<style type="text/css">.login h1 a { background: url('. get_bloginfo("template_directory") .'/site-assets/login-logo.png) no-repeat center top; margin-bottom:15px; }</style>';
+echo '<style type="text/css">.login h1 a { background: url('. get_bloginfo("template_directory") .'/site-assets/login-logo.png) no-repeat center top;margin-bottom:0; }</style>';
 }
 add_action('login_head', 'login_styles');
 
