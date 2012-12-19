@@ -134,16 +134,6 @@ function custom_admin_footer() {
 } 
 add_filter('admin_footer_text', 'custom_admin_footer');
 
-/*
-|====================================================
-| DE-REGISTER BUILT IN JQUERY INCLUDE, LOAD SCRIPT FROM GOOGLE CDN
-|====================================================
-*/
-if (!is_admin()) {
-	wp_deregister_script('jquery');
-	wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"), false);
-	wp_enqueue_script('jquery');
-}
 
 /*
 |====================================================
