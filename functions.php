@@ -126,6 +126,22 @@ add_action('admin_menu', 'remove_menus');
 
 /*
 |====================================================
+| lOAD CUSTOM JAVASCRIPT FILE
+|====================================================
+*/
+function rm_ready_scripts() {
+	wp_enqueue_script(
+		'rm_javascript',
+		get_template_directory_uri() . '/js/script.js',
+		array('jquery'),
+		'1.0',
+		true
+	);
+}
+add_action('wp_enqueue_scripts', 'rm_ready_scripts');
+
+/*
+|====================================================
 | CUSTOMIZE THE ADMIN FOOTER AREA
 |====================================================
 */
